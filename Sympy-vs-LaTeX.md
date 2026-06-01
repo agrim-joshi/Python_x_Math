@@ -6,12 +6,14 @@ When working with mathematics in Python, it's important to understand the differ
 |----------|--------|--------|
 | Purpose | Mathematical computation | Mathematical typesetting |
 | Type | Python library | Markup language |
-| Can solve equations? |  Yes |  No |
-| Can simplify expressions? |  Yes |  No |
-| Can perform calculus? |  Yes |  No |
-| Produces formatted math output? | Limited |  Excellent |
-| Executes mathematical logic? |  Yes |  No |
-| Used in Python programs? |  Yes | Indirectly |
+| Can solve equations? | ✅ Yes | ❌ No |
+| Can simplify expressions? | ✅ Yes | ❌ No |
+| Can perform calculus? | ✅ Yes | ❌ No |
+| Produces formatted math output? | Limited | ✅ Excellent |
+| Executes mathematical logic? | ✅ Yes | ❌ No |
+| Used in Python programs? | ✅ Yes | Indirectly |
+
+---
 
 ## What is SymPy?
 
@@ -44,6 +46,8 @@ SymPy understands the mathematics and can:
 - Work with matrices
 - Perform symbolic algebra
 
+---
+
 ## What is LaTeX?
 
 **LaTeX** is a document markup language used to display mathematical notation professionally.
@@ -56,19 +60,21 @@ SymPy understands the mathematics and can:
 
 Rendered output:
 
-\[
+$$
 (x + 1)^2 = x^2 + 2x + 1
-\]
+$$
 
 LaTeX does **not** perform calculations. It only controls how mathematics is displayed.
+
+---
 
 ## A Practical Comparison
 
 Suppose you want to expand:
 
-\[
+$$
 (x + 1)^2
-\]
+$$
 
 ### Using SymPy
 
@@ -91,13 +97,15 @@ x**2 + 2*x + 1
 (x + 1)^2
 ```
 
-Result:
+Rendered:
 
-\[
+$$
 (x + 1)^2
-\]
+$$
 
 LaTeX simply displays the expression. It does not expand it.
+
+---
 
 ## Using SymPy and LaTeX Together
 
@@ -118,22 +126,79 @@ Output:
 x^{2} + 2 x + 1
 ```
 
+Rendered:
+
+$$
+x^{2} + 2x + 1
+$$
+
 This allows you to:
 
 1. Compute mathematics with SymPy.
 2. Convert the result to LaTeX.
 3. Display it beautifully in documents, websites, notebooks, or GitHub pages.
 
+---
+
 ## Simple Analogy
 
 Think of them like this:
 
-- **SymPy = Calculator + Algebra Expert**
-- **LaTeX = Professional Math Designer**
+| Tool | Role |
+|--------|--------|
+| SymPy | Calculator + Algebra Expert |
+| LaTeX | Professional Math Designer |
 
 SymPy figures out the answer.
 
 LaTeX makes the answer look beautiful.
+
+---
+
+## Example Workflow
+
+Consider the expression:
+
+$$
+(x + 1)^2
+$$
+
+### Step 1: SymPy Computes
+
+```python
+from sympy import symbols, expand
+
+x = symbols('x')
+expand((x + 1)**2)
+```
+
+Output:
+
+```text
+x**2 + 2*x + 1
+```
+
+### Step 2: Convert to LaTeX
+
+```python
+from sympy import latex
+
+latex(x**2 + 2*x + 1)
+```
+
+Output:
+
+```latex
+x^{2} + 2 x + 1
+```
+
+### Step 3: Render Beautifully
+
+$$
+x^{2} + 2x + 1
+$$
+
+---
 
 ## When to Use Which?
 
@@ -141,7 +206,9 @@ LaTeX makes the answer look beautiful.
 
 - Solve equations
 - Perform symbolic computation
-- Differentiate or integrate functions
+- Differentiate functions
+- Integrate expressions
+- Simplify algebraic expressions
 - Automate mathematical workflows
 - Build mathematical applications
 
@@ -152,15 +219,37 @@ LaTeX makes the answer look beautiful.
 - Display formulas on websites
 - Format equations for publication
 - Present mathematical results clearly
+- Create professional-looking mathematical content
+
+---
+
+## SymPy and LaTeX Are Not Competitors
+
+A common misconception is that SymPy and LaTeX solve the same problem.
+
+They do not.
+
+- **SymPy** is for computation.
+- **LaTeX** is for presentation.
+
+SymPy can understand that
+
+$$
+(x + 1)^2 = x^2 + 2x + 1
+$$
+
+while LaTeX simply displays the expression without performing any mathematical reasoning.
+
+---
 
 ## Conclusion
 
-SymPy and LaTeX are complementary tools rather than competitors.
+SymPy and LaTeX are complementary tools rather than competing technologies.
 
 - **SymPy** handles the mathematics.
 - **LaTeX** handles the presentation.
 
-In modern mathematical computing, a common workflow is:
+A typical workflow looks like this:
 
 ```text
 Mathematical Problem
@@ -169,7 +258,9 @@ Mathematical Problem
  (Compute Result)
         ↓
       LaTeX
- (Display Result)
+ (Generate Math Markup)
+        ↓
+ Beautiful Mathematical Output
 ```
 
-Using both together provides the best combination of computational power and professional-quality mathematical notation.
+Using both together provides the best combination of computational power and professional-quality mathematical notation, making them essential tools for anyone working with mathematics in Python.
